@@ -4,7 +4,7 @@
 // To test your solution, establish a binary tree containing nodes with integer values [1,2,3,4,5]. 
 // Invoke the inorder function to check the output [4,2,5,1,3]. 
 
-class TreeNode {
+class TreeNode {// the class for all 4 problems
     constructor(data) {
       this.value = data;
       this.left = null;
@@ -56,6 +56,7 @@ let sameRoot = new TreeNode(1);
 sameRoot.left = new TreeNode(2);
 sameRoot.right = new TreeNode(3);
 console.log(isSameTree([1,2,3],[1,2,3]))
+
 // Question 3
 // Develop a 'countNodes' function to calculate the total nodes in a binary tree, and build a TreeNode class for a binary tree in JavaScript. 
 // For complete trees, it uses the formula 2^h - 1. Verify the function using a given root tree. 
