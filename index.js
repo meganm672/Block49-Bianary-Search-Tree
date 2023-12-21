@@ -87,48 +87,31 @@ console.log(countNodes(countRoot))
 
 function searchBottomLeftValue(root){
 
-    // const q = [root]
+    const q = [root]
 
-    // let leftmost
+    let leftmost= 0
 
-    // while (q.length) {
+    while (q.length > 0) {
+        const currentLevelSize = q.length;
+        leftmost = q[0].value
 
-    //     leftmost = q[0].val
+        for (let i = 0; i < currentLevelSize; i++) {
 
-    //     for (let i = q.length - 1; i >= 0; i--) {
+            const current = q.shift()
+            if (current.left) q.push(current.left)
+            if (current.right) q.push(current.right)
+        }
 
-    //         const curr = q.shift()
-
-    //         if (curr.left) q.push(curr.left)
-    //         if (curr.right) q.push(curr.right)
-
-    //     }
-
-    // }
-
-    // return leftmost
-    const q = [root];
-  let res = [];
-  while (q.length) {
-    const len = q.length;
-    //Only record the last row. But all rows can be recorded by 2D array.
-    res = [];
-    for (let i = 0; i < len; i++) {
-      const node = q.shift();
-      res.push(node.val);
-      node.left && q.push(node.left);
-      node.right && q.push(node.right);
     }
-  }
-  return res[0];
+    return leftmost
     
 }
 
 let leftRoot = new TreeNode(2);
 leftRoot.left = new TreeNode(1);
-leftRoot.right = new TreeNode(3);
 leftRoot.left.left = new TreeNode(4);
+leftRoot.right = new TreeNode(3);
 leftRoot.right.left = new TreeNode(5);
 leftRoot.right.left.left = new TreeNode(6);
 
-// console.log(searchBottomLeftValue(leftRoot)) // currently coming up undefined
+console.log(searchBottomLeftValue(leftRoot)) 
