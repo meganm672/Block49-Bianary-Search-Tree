@@ -12,55 +12,22 @@ class TreeNode {
     }
   }
   
-//   class Tree {
-//     constructor(root){
-//         this.root = root
-//     }
-//   }
 
 function inorderTree(root){
-
-    // const result = [];
-    // let current = root;
-
-    // while (current) {
-    //     if (!current.left) {
-    //         result.push(current.val);
-    //         current = current.right;
-    //     } else {
-    //         let predecessor = current.left;
-
-    //         while (predecessor.right && predecessor.right !== current) {
-    //             predecessor = predecessor.right;
-    //         }
-
-    //         if (!predecessor.right) {
-    //             predecessor.right = current;
-    //             current = current.left;
-    //         } else {
-    //             predecessor.right = null;
-    //             result.push(current.val);
-    //             current = current.right;
-    //         }
-    //     }
-    // }
-
-    // return result;
+    let current = root
     const stack = [];
-    const res = [];
+    const result = [];
   
-    while (root || stack.length) {
-      if (root) {
-        stack.push(root);
-        root = root.left;
-      } else {
-        root = stack.pop();
-        res.push(root.val);
-        root = root.right;
-      }
+    while(current !== null || stack.length){
+        while(current !== null){
+            stack.push(current);
+            current = current.left
+        }
+        current = stack.pop();
+        result.push(current.value);
+        current = current.right;
     }
-  
-    return res;
+    return result;
 }
   // Instantiate nodes for the binary tree
   let inOrderRoot = new TreeNode(1);
@@ -69,9 +36,7 @@ function inorderTree(root){
   inOrderRoot.left.left = new TreeNode(4);
   inOrderRoot.left.right = new TreeNode(5);
 
-//   const t = new Tree(inOrderRoot)
-// console.log(inorderTree(inOrderRoot)) 
-// currently coming up undefined 
+console.log(inorderTree(inOrderRoot)) 
 
 // Question 2
 // Create a Node class in JavaScript to build parts of a binary tree. Then, make an 'isSameTree' function. 
