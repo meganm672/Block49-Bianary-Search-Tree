@@ -87,9 +87,9 @@ function isSameTree(p,q){
 }
 
 // Instantiate nodes for the binary tree
-let root = new TreeNode(1);
-root.left = new TreeNode(2);
-root.right = new TreeNode(3);
+let sameRoot = new TreeNode(1);
+sameRoot.left = new TreeNode(2);
+sameRoot.right = new TreeNode(3);
 console.log(isSameTree([1,2,3],[1,2,3]))
 // Question 3
 // Develop a 'countNodes' function to calculate the total nodes in a binary tree, and build a TreeNode class for a binary tree in JavaScript. 
